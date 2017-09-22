@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Base from '../../libs/Base'
-import {ListItem} from './ListItem'
+import ListItem from './ListItem'
 import './List.less'
 
 export interface IListProps {

@@ -1,15 +1,44 @@
 import * as React from 'react'
-import {List} from '../../../components'
+import {List, Icon} from '../../../components'
 
-export default class ListNormal extends React.Component {
+export interface IListNormal {
+  items: {text: string, active: boolean}[]
+}
+
+export default class ListNormal extends React.Component<{}, IListNormal> {
+
+  state = {
+    items: [
+      {text: 'Apple', active: false},
+      {text: 'Banana', active: false},
+      {text: 'Orange', active: false},
+      {text: 'Pear', active: false},
+    ]
+  }
+
+  onClickItem = (e: any, index: number) => {
+    this.setState({items: this.state.items.map((item, i) => (
+      i === index ? {...item, active: !item.active} : item
+    ))})
+  }
+
   render () {
+    const {items} = this.state
+
     return (
       <div>
-        <List>
-          <List.Item>Apple</List.Item>
-          <List.Item active>Banana</List.Item>
-          <List.Item>Orange</List.Item>
-          <List.Item>Pear</List.Item>
+        <List title='Fruits'>
+          {items.map((item, index) => (
+            <List.Item
+              active={item.active}
+              data={index}
+              key={index}
+              header={<Icon name='tag'/>}
+              actions={<div>action</div>}
+              onClick={this.onClickItem}>
+              {item.text}
+            </List.Item>
+          ))}
         </List>
       </div>
     )

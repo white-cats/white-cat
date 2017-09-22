@@ -4,10 +4,12 @@ import Base from '../../libs/Base'
 export interface IListItemProps {
   active?: boolean
   data?: any
+  header?: React.ReactNode
+  actions?: React.ReactNode
   onClick?: (e: React.MouseEvent<HTMLDivElement>, data: any) => void
 }
 
-export class ListItem extends Base<IListItemProps> {
+export default class ListItem extends Base<IListItemProps> {
 
   onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const {data, onClick} = this.props
@@ -17,12 +19,19 @@ export class ListItem extends Base<IListItemProps> {
   }
 
   render () {
-    const {active, children} = this.props
+    const {active, children, header, actions} = this.props
 
     return (
       <div {...this.rootProps(['whc-list__item', {active}])} onClick={this.onClick}>
-        {}
-        {children}
+        {header && (
+          <div className='whc-list__item-header'>{header}</div>
+        )}
+        {children && (
+          <div className='whc-list__item-content'>{children}</div>
+        )}
+        {actions && (
+          <div className='whc-list__item-actions'>{actions}</div>
+        )}
       </div>
     )
   }

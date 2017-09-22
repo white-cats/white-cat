@@ -5,32 +5,46 @@
 
   &__title {
     padding: @list-title-padding;
-    height: @list-title-height;
-    line-height: @list-title-height;
     font-size: @list-title-font-size;
     color: @list-title-color;
+    line-height: 1;
   }
 
   &__item {
+    display: flex;
+    flex-direction: row;
     padding: @list-item-padding;
-    height: @list-item-height;
-    line-height: @list-item-height;
     font-size: @list-item-font-size;
     color: @list-item-color;
+    line-height: 1;
     cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    
     transition: all 0.3s;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
-    &:hover {
-      color: @list-item-color-hover;
+    &-header {
+      margin-right: 0.8em;
+    }
+
+    &-content {
+      flex: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &-actions {
+      margin-left: 0.8em;
+      display: none;
+    }
+
+    &:hover & {
       background: @list-item-fill-hover;
+
+      &-actions {
+        display: block;
+      }
     }
 
     &.active {
-      color: @list-item-color-active;
       background: @list-item-fill-active;
     }
   }
