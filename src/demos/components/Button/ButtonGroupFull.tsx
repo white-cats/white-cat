@@ -13,9 +13,15 @@ export default class ButtonIcon extends React.Component {
         </Button.Group>
         <br/>
         <Button.Group full>
-          <Button type='basic'>one</Button>
-          <Button type='basic'>two</Button>
-          <Button type='basic'>three</Button>
+          <Button basic>one</Button>
+          <Button basic>two</Button>
+          <Button basic>three</Button>
+        </Button.Group>
+        <br/>
+        <Button.Group full>
+          <Button type='white'>one</Button>
+          <Button type='white'>two</Button>
+          <Button type='white'>three</Button>
         </Button.Group>
       </div>
     )

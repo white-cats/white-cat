@@ -6,8 +6,9 @@ import './Button.less'
 
 export interface IButtonProps {
   size?: 'small' | 'normal' | 'large',
-  type?: 'default' | 'basic' | 'plain' | 'primary' | 'success' | 'warning' | 'danger',
+  type?: 'default' | 'plain' | 'primary' | 'success' | 'warning' | 'danger' | 'white' | 'black',
   nativeType?: 'button' | 'submit' | 'reset',
+  basic?: boolean,
   icon?: string,
   disabled?: boolean,
   loading?: boolean,
@@ -23,6 +24,7 @@ export default class Button extends Base<IButtonProps, IButtonState> {
   static defaultProps: IButtonProps = {
     size: 'normal',
     type: 'default',
+    basic: false,
     nativeType: 'button'
   }
 
@@ -58,13 +60,13 @@ export default class Button extends Base<IButtonProps, IButtonState> {
   }
 
   render () {
-    const {disabled, full, icon, nativeType, children} = this.props
+    const {disabled, basic, full, icon, nativeType, children} = this.props
     const {loading} = this.state
     const size = this.props.size && 'whc-button--' + this.props.size
     const type = this.props.type && 'whc-button--' + this.props.type
     return (
       <button
-        {...this.rootProps(['whc-button', type, size, {disabled, loading, full}])}
+        {...this.rootProps(['whc-button', type, size, {disabled, basic, loading, full}])}
         disabled={disabled || loading}
         type={nativeType}
         onClick={this.onClick}

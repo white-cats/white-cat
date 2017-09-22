@@ -14,10 +14,41 @@
 
     &:hover {
       background: lighten(@fill, 6%);
+
+      & when (@type = white) {
+        background: darken(@fill, 4%);
+      }
     }
 
     &:active {
       background: darken(@fill, 6%);
+
+      & when (@type = white) {
+        background: darken(@fill, 10%);
+      }
+    }
+
+    &.basic {
+      color: @fill;
+      background: transparent;
+      box-shadow: 0 0 0 1px fadeout(@fill, 60%) inset;
+
+      & when (@type = default) {
+        color: @font-color-light;
+      }
+
+      &:hover {
+        box-shadow: 0 0 0 1px @fill inset; 
+      }
+
+      &:active {
+        background: fadeout(@fill, 90%);
+      }
+
+      &.loading,
+      &.disabled {
+        background: white;
+      }
     }
 
     &.loading,
@@ -65,27 +96,6 @@
     }
   }
 
-  &.whc-button--basic {
-    background: transparent;
-    color: @button-basic-color;
-    box-shadow: @button-basic-box-shadow;
-
-    &:hover {
-      background: transparent;
-      box-shadow: @button-basic-box-shadow-hover;
-    }
-    
-    &:active {
-      background: @button-basic-fill-active;
-    }
-
-    &.loading,
-    &.disabled {
-      background: transparent;
-      box-shadow: @button-basic-box-shadow;
-    }
-  }
-
   .button-size(small, @button-small-padding, @button-small-font-size);
   .button-size(normal, @button-normal-padding, @button-normal-font-size);
   .button-size(large, @button-large-padding, @button-large-font-size);
@@ -95,6 +105,8 @@
   .button-style(success, @button-success-color, @button-success-fill);
   .button-style(warning, @button-warning-color, @button-warning-fill);
   .button-style(danger, @button-danger-color, @button-danger-fill);
+  .button-style(white, @button-white-color, @button-white-fill);
+  .button-style(black, @button-black-color, @button-black-fill);
 
   &.disabled,
   &.loading {
