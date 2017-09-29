@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Input} from '../../../components'
+import {Textarea} from '../../../components'
 
-export default class InputDisabled extends React.Component {
+export default class TextareaDisabled extends React.Component {
   render () {
     return (
       <div>
-        <Input disabled/>
+        <Textarea disabled/>
       </div>
     )
   }

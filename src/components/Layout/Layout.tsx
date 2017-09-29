@@ -3,7 +3,7 @@ import Base from '../../libs/Base'
 import './Layout.less'
 
 export interface ILayoutProps {
-  direction?: 'horizontal' | 'vertical',
+  direction?: 'horizontal' | 'vertical' | 'horizontal-reverse' | 'vertical-reverse',
   centered?: boolean,
   full?: boolean,
   header?: React.ReactNode,
