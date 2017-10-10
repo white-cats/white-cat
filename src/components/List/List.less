@@ -1,10 +1,21 @@
 @import "../../styles/import";
 
-.whc-list {
-  background: @list-fill;
+.list-size (@name, @font-size, @padding, @line-height, @title-padding) {
+  &--@{name} {
+    .whc-list__title {
+      padding: @title-padding;
+    }
 
+    .whc-list__item {
+      font-size: @font-size;
+      padding: @padding;
+      line-height: @line-height;
+    }
+  }
+}
+
+.whc-list {
   &__title {
-    padding: @list-title-padding;
     font-size: @list-title-font-size;
     color: @list-title-color;
     line-height: 1;
@@ -14,8 +25,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: @list-item-padding;
-    font-size: @list-item-font-size;
     color: @list-item-color;
     line-height: 1;
     cursor: pointer;
@@ -37,9 +46,11 @@
       display: none;
     }
 
-    &:hover & {
+    &:hover {
       background: @list-item-fill-hover;
+    }
 
+    &:hover & {
       &-actions {
         display: block;
       }
@@ -49,4 +60,8 @@
       background: @list-item-fill-active;
     }
   }
+
+  .list-size(small, @list-item-small-font-size, @list-item-small-padding, @list-item-small-line-height, @list-title-small-padding);
+  .list-size(normal, @list-item-normal-font-size, @list-item-normal-padding, @list-item-normal-line-height, @list-title-normal-padding);
+  .list-size(large, @list-item-large-font-size, @list-item-large-padding, @list-item-large-line-height, @list-title-large-padding);
 }

@@ -1,7 +1,6 @@
 import * as React from 'react'
 import * as Transition from 'react-transition-group/CSSTransitionGroup'
 import Base from '../../libs/Base'
-import Loader from '../Loader'
 import ScrollBar from '../ScrollBar'
 import './SidePanel.less'
 
@@ -10,7 +9,6 @@ export interface ISidePanelProps {
   placement?: 'left' | 'right',
   fixed?: boolean,
   visible?: boolean,
-  loading?: boolean,
   width?: number | string
 }
 
@@ -23,8 +21,7 @@ export default class SidePanel extends Base<ISidePanelProps, ISidePanelState> {
   static defaultProps = {
     placement: 'left',
     fixed: false,
-    width: '700px',
-    loading: false
+    width: '700px'
   }
 
   constructor (props: ISidePanelProps) {
@@ -35,7 +32,7 @@ export default class SidePanel extends Base<ISidePanelProps, ISidePanelState> {
   }
   
   render () {
-    const {header, placement, fixed, width, visible, loading, children} = this.props
+    const {header, placement, fixed, width, visible, children} = this.props
     
     return (
       <Transition
@@ -46,12 +43,8 @@ export default class SidePanel extends Base<ISidePanelProps, ISidePanelState> {
           visible
             ? (
               <div {...this.rootProps(['whc-side-panel', `whc-side-panel--${placement}`, {fixed, visible}], {width})}>
-                {!loading && header && <div className='whc-side-panel__header'>{header}</div>}
-                {
-                  loading
-                    ? <Loader loading={true}/>
-                    : children && <ScrollBar className='whc-side-panel__container'>{children}</ScrollBar>
-                }
+                {header && <div className='whc-side-panel__header'>{header}</div>}
+                {children && <ScrollBar className='whc-side-panel__container'>{children}</ScrollBar>}
               </div>
             )
             : null

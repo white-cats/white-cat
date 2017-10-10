@@ -5,7 +5,6 @@ export default class IconOnClick extends React.Component {
 
   onClick = (e: any) => {
     console.log('e: ', e)
-
   }
 
   render () {
@@ -13,7 +12,6 @@ export default class IconOnClick extends React.Component {
       <div>
         <Icon
           name='pencil'
-          clickable={true}
           onClick={this.onClick}/>
       </div>
     )

@@ -7,7 +7,6 @@ export default class IconFit extends React.Component {
     return (
       <div>
         <Icon name='pencil' fit={true}/>&nbsp;&nbsp;&nbsp;
-        <Icon name='pencil' fit={false}/>&nbsp;&nbsp;&nbsp;
       </div>
     )
   }

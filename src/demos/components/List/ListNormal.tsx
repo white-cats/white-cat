@@ -1,11 +1,11 @@
 import * as React from 'react'
 import {List, Icon} from '../../../components'
 
-export interface IListNormal {
+export interface IListNormalState {
   items: {text: string, active: boolean}[]
 }
 
-export default class ListNormal extends React.Component<{}, IListNormal> {
+export default class ListNormal extends React.Component<{}, IListNormalState> {
 
   state = {
     items: [

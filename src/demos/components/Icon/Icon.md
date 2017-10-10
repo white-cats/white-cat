@@ -6,6 +6,12 @@
 
 名称
 
+----- IconColor
+
+## `color`?: 'normal' | 'gray' | 'blue' | 'red' | 'orange' | 'green' | string
+
+颜色
+
 ----- IconSpinning
 
 ## `actions`?: boolean = false

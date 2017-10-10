@@ -93,7 +93,12 @@
 
 // Icon
 // ----------------------------
-@icon-color-hover: @color-primary;
+@icon-color-normal: inherit;
+@icon-color-gray: @color-gray;
+@icon-color-blue: @color-primary;
+@icon-color-green: @color-success;
+@icon-color-orange: @color-warning;
+@icon-color-red: @color-danger;
 
 // Loader
 // ----------------------------
@@ -196,16 +201,27 @@
 
 // List
 // ----------------------------
-@list-fill: @color-white-base;
 @list-title-color: @font-color-lighter;
 @list-title-font-size: 0.8em;
-@list-title-padding: 12px 8px;
 
 @list-item-color: @font-color-light;
 @list-item-fill-hover: lighten(@color-gray-lighter, 3%);
-@list-item-font-size: 1em;
-@list-item-padding: 12px 8px;
 @list-item-fill-active: lighten(@color-primary, 30%);
+
+@list-title-small-padding: 6px 8px;
+@list-item-small-padding: 8px 8px;
+@list-item-small-font-size: 1em;
+@list-item-small-line-height: 1.2em;
+
+@list-title-normal-padding: 10px 8px;
+@list-item-normal-padding: 10px 8px;
+@list-item-normal-font-size: 1em;
+@list-item-normal-line-height: 1.2em;
+
+@list-title-large-padding: 12px 8px;
+@list-item-large-padding: 12px 8px;
+@list-item-large-font-size: 1.2em;
+@list-item-large-line-height: 1.4em;
 
 // Pagination
 // ----------------------------
@@ -255,9 +271,11 @@
 @container-lg-width: 1127px;
 
 // Divider
+// ----------------------------
 @divider-border: @border;
 
 // Popover
+// ----------------------------
 @popover-box-shadow: @box-shadow-large;
 @popover-border-radius: @border-radius;
 @popover-fill: @color-white-base;
@@ -266,6 +284,7 @@
 @popover-padding: 8px;
 
 // Menu
+// ----------------------------
 @menu-line-height: 24px;
 @menu-color: @font-color-light;
 @menu-title-padding: 8px 12px;
@@ -276,3 +295,9 @@
 
 @menu-border-radius: @border-radius;
 @menu-border: @border;
+
+// SidePanel
+// ----------------------------
+@side-panel-box-shadow: @box-shadow;
+@side-panel-border: @border;
+@side-panel-background: fadeout(@color-white-base, 20%);

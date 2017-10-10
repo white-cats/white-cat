@@ -7,7 +7,6 @@ export default class IconClickable extends React.Component {
     return (
       <div>
         <Icon name='pencil' clickable={true}/>&nbsp;&nbsp;&nbsp;
-        <Icon name='pencil' clickable={false}/>&nbsp;&nbsp;&nbsp;
       </div>
     )
   }

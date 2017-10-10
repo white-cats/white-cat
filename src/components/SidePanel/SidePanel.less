@@ -8,10 +8,10 @@
   bottom: 0;
   height: 100%;
   flex-direction: column;
-  box-shadow: @box-shadow;
-  background: @color-white-base;
+  box-shadow: @side-panel-box-shadow;
+  background: @side-panel-background;
 
-  &__header {
+  &__header:not(:empty) {
     padding: 10px 20px;
     line-height: 40px;
   }
@@ -21,7 +21,7 @@
     flex: 1;
 
     .whc-side-panel__header + & {
-      border-top: @border;
+      border-top: @side-panel-border;
     }
   }
 
