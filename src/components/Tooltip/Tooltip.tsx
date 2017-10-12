@@ -4,7 +4,8 @@ import PopoverBase from '../../libs/PopoverBase'
 
 export interface ITooltipProps {
   content?: React.ReactNode,
-  color?: 'dark' | 'light'
+  color?: 'dark' | 'light',
+  zIndex?: number
 }
 
 export default class Tooltip extends PopoverBase<ITooltipProps> {
@@ -20,14 +21,15 @@ export default class Tooltip extends PopoverBase<ITooltipProps> {
   }
 
   getContent = () => {
-    const {content, color} = this.props
+    const {content, color, zIndex} = this.props
+    let styles = zIndex === undefined ? undefined : {zIndex}
 
     if (!content) {
       return null
     }
 
     return (
-      <div {...this.rootProps(['whc-tooltip', `whc-tooltip--${color}`])}>
+      <div {...this.rootProps(['whc-tooltip', `whc-tooltip--${color}`], styles)}>
         <div className='whc-tooltip__content'>{content}</div>
         <div className='whc-tooltip__arrow'/>
       </div>
