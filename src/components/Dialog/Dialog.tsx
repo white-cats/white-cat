@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as Transition from 'react-transition-group/CSSTransitionGroup'
+import * as CSSTransition from 'react-transition-group/CSSTransition'
 import Base from '../../libs/Base'
 import Button from '../Button'
 import Mask from '../Mask'
@@ -25,7 +25,6 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
 
   static defaultProps = {
     size: 'normal',
-    maskClosable: true,
     cancelText: '取消',
     confirmText: '确定'
   }
@@ -89,29 +88,25 @@ export default class Dialog extends Base<IDialogProps, IDialogState> {
     return (
       <span className='whc-dialog__wrap'>
         <Mask visible={visible} fixed onClick={this.onClickMask}/>
-        <Transition
-        transitionName='whc-dialog'
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}>
-        {
-          visible
-            ? (
-              <div {...rootProps}>
-                {header && <div className='whc-dialog__header'>{header}</div>}
-                {children && <div className='whc-dialog__body'>{children}</div>}
-                {
-                  footer === undefined
-                    ? this.renderDefaultFooter()
-                    : footer === null
-                    ? null
-                    : <div className='whc-dialog__footer'>{footer}</div>
-                }
-                <span className='whc-dialog__close' onClick={onCancel}>×</span>
-              </div>
-            )
-            : null
-        }
-      </Transition>
+        <CSSTransition
+          classNames='whc-dialog'
+          in={visible}
+          mountOnEnter
+          unmountOnExit
+          timeout={300}>
+          <div {...rootProps}>
+            {header && <div className='whc-dialog__header'>{header}</div>}
+            {children && <div className='whc-dialog__body'>{children}</div>}
+            {
+              footer === undefined
+                ? this.renderDefaultFooter()
+                : footer === null
+                ? null
+                : <div className='whc-dialog__footer'>{footer}</div>
+            }
+            <span className='whc-dialog__close' onClick={onCancel}>×</span>
+          </div>
+        </CSSTransition>
       </span>
     )
   }

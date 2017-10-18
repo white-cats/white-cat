@@ -1,8 +1,4 @@
-import * as addDays from 'date-fns/add_days'
-import * as eachDay from 'date-fns/each_day'
-import * as lastDayOfWeek from 'date-fns/last_day_of_week'
-import * as startOfWeek from 'date-fns/start_of_week'
-import * as isSameDay from 'date-fns/is_same_day'
+import {addDays, eachDay, lastDayOfWeek, startOfWeek, isSameDay} from 'date-fns'
 
 export const isSameDate = isSameDay
 
@@ -57,7 +53,7 @@ export function getDates (year: number, month: number): IDateItem[] {
       current: isSameDay(today, date)
     }))
 
-  const futrueDates: IDateItem[] = (
+  const futureDates: IDateItem[] = (
       endDate > endMonthDate
         ? eachDay(addDays(endMonthDate, 1), endDate)
         : []
@@ -70,7 +66,7 @@ export function getDates (year: number, month: number): IDateItem[] {
   return [
     ...pastDates,
     ...monthDates,
-    ...futrueDates
+    ...futureDates
   ]
 }
 

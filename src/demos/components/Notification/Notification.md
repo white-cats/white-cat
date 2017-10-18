@@ -1,5 +1,7 @@
 # Notification 提示条
 
+----- NotificationNormal
+
 ----- NotificationType
 
 ## `type`?: 'primary' | 'success' | 'warning' | 'error'

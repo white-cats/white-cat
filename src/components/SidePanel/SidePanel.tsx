@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as Transition from 'react-transition-group/CSSTransitionGroup'
+import * as CSSTransition from 'react-transition-group/CSSTransition'
 import Base from '../../libs/Base'
 import ScrollBar from '../ScrollBar'
 import './SidePanel.less'
@@ -35,21 +35,17 @@ export default class SidePanel extends Base<ISidePanelProps, ISidePanelState> {
     const {header, placement, fixed, width, visible, children} = this.props
     
     return (
-      <Transition
-        transitionName='whc-side-panel'
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}>
-        {
-          visible
-            ? (
-              <div {...this.rootProps(['whc-side-panel', `whc-side-panel--${placement}`, {fixed, visible}], {width})}>
-                {header && <div className='whc-side-panel__header'>{header}</div>}
-                {children && <ScrollBar className='whc-side-panel__container'>{children}</ScrollBar>}
-              </div>
-            )
-            : null
-        }
-      </Transition>
+        <CSSTransition
+          classNames='whc-side-panel'
+          in={visible}
+          mountOnEnter
+          unmountOnExit
+          timeout={300}>
+          <div {...this.rootProps(['whc-side-panel', `whc-side-panel--${placement}`, {fixed, visible}], {width})}>
+            {header && <div className='whc-side-panel__header'>{header}</div>}
+            {children && <ScrollBar className='whc-side-panel__container'>{children}</ScrollBar>}
+          </div>
+        </CSSTransition>
     )
   }
 }
