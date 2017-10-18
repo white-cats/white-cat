@@ -18,6 +18,10 @@ export default class ListItem extends Base<IListItemProps> {
     }
   }
 
+  onClickActions = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation()
+  }
+
   render () {
     const {active, children, header, actions} = this.props
 
@@ -30,7 +34,7 @@ export default class ListItem extends Base<IListItemProps> {
           <div className='whc-list__item-content'>{children}</div>
         )}
         {actions && (
-          <div className='whc-list__item-actions'>{actions}</div>
+          <div className='whc-list__item-actions' onClick={this.onClickActions}>{actions}</div>
         )}
       </div>
     )
