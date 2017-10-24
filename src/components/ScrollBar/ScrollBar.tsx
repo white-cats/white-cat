@@ -55,25 +55,27 @@ export default class ScrollBar extends Base<IScrollBarProps, IScrollBarState> {
   }
   
   onMouseWheel = (e: any) => {
-    if (e.target !== this.el) {
-      return
-    }
     const {direction, stopPropagation} = this.props
     if (direction === 'horizontal') {
       this.el.scrollLeft += -e.wheelDelta
     }
-    if (stopPropagation) {
+    if (stopPropagation && this.el.scrollHeight > this.el.clientHeight) {
       e.stopPropagation()
     }
   }
   
-  onMouseDown: any = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target !== this.el) {
+  onMouseDown: any = (e: React.MouseEvent<any>) => {
+    if (
+      !this.el
+      || !e.target
+      || !this.el.contains(e.target as any)
+    ) {
       return
     }
+    
     this.startPosition = {
       x: this.el.scrollLeft,
-      y: this.el.scrollHeight
+      y: this.el.scrollTop
     }
     this.startPoint = {
       x: e.clientX,
@@ -92,7 +94,7 @@ export default class ScrollBar extends Base<IScrollBarProps, IScrollBarState> {
       if (direction === 'horizontal') {
         this.el.scrollLeft = this.startPosition.x - (x - this.startPoint.x)
       } else {
-        this.el.scrollLeft = this.startPosition.y - (y - this.startPoint.y)
+        this.el.scrollTop = this.startPosition.y - (y - this.startPoint.y)
       }
     }
   }
