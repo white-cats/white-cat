@@ -2,6 +2,8 @@
 
 React components built with typescript.
 
+> :warning::warning::warning:Don't use it in actual projects, until version 1.0 releases.
+
 ## Components
 
 - [x] AutocompleteInput
