@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecfexorg/white-cat.git"
+    "url": "git+https://github.com/white-cats/white-cat.git"
   },
   "keywords": [
     "react",
@@ -25,9 +25,9 @@
   "author": "varHarrie",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecfexorg/white-cat/issues"
+    "url": "https://github.com/white-cats/white-cat/issues"
   },
-  "homepage": "https://github.com/ecfexorg/white-cat#readme",
+  "homepage": "https://github.com/white-cats/white-cat#readme",
   "devDependencies": {
     "@types/classnames": "^2.2.3",
     "@types/highlight.js": "^9.1.10",
