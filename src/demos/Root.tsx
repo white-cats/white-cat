@@ -1,33 +1,29 @@
-import * as React from 'react'
-import ComponentsView from './containers/ComponentsView'
-// import HomeView from './containers/HomeView'
-import TopBar from './containers/TopBar'
-import {Route} from 'react-router-dom'
-import './styles.less'
 import './components'
+import './styles.less'
 
-export interface IRootProps {}
+import * as React from 'react'
+import {Route, Switch} from 'react-router'
 
-export interface IRootState {}
+import {Container} from '..'
+import Header from './Header'
+import ViewComponent from './views/ViewComponent'
+import ViewHome from './views/ViewHome'
+
+interface IRootProps {}
+
+interface IRootState {}
 
 export default class Root extends React.Component<IRootProps, IRootState> {
-
-  constructor (props: IRootProps) {
-    super(props)
-    this.state = {}
-  }
-
   render () {
     return (
       <div className='Root'>
-        <Route path='/:tab?' component={TopBar}/>
-        {/* <div className='Root__container'>
-          <Route path='/' exact component={HomeView}/>
-          <Route path='/components' component={ComponentsView}/>
-        </div> */}
-        <div className='Root__container'>
-          <Route path='/' component={ComponentsView}/>
-        </div>
+        <Header/>
+        <Container>
+          <Switch>
+            <Route path='/:name' component={ViewComponent}/>
+            <Route path='/' component={ViewHome}/>
+          </Switch>
+        </Container>
       </div>
     )
   }

@@ -6,7 +6,7 @@ export default class ColSpan extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='ColSpan'>
         <Row>
           <Col span={1}><div>1</div></Col>
           <Col span={2}><div>2</div></Col>

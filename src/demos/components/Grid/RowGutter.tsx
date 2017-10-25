@@ -6,7 +6,7 @@ export default class RowGutter extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='RowGutter'>
         <div>无间距：</div>
         <Row>
           <Col span={6}><div>6</div></Col>
