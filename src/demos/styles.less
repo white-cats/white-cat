@@ -194,6 +194,26 @@ a {
   }
 }
 
+.WaterFallItem {
+  &-enter {
+    opacity: 0.01;
+
+    &&-active {
+      opacity: 1;
+      transition: all 300ms;
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+
+    &&-active {
+      opacity: 0;
+      transition: all 300ms;
+    }
+  }
+}
+
 
 // .color-slot(@name) {
 //     &.@{name} {

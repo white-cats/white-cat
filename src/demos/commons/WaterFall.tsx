@@ -1,6 +1,8 @@
 import * as React from 'react'
+import * as CSSTransition from 'react-transition-group/CSSTransition'
+import * as TransitionGroup from 'react-transition-group/TransitionGroup'
 
-import {Row, Col} from '../..'
+import {Col, Row} from '../..'
 
 interface IViewWaterFallProps {
   items: any[],
@@ -22,7 +24,7 @@ export default class ViewWaterFall extends React.Component<IViewWaterFallProps, 
   constructor (props: IViewWaterFallProps) {
     super(props)
     this.state = {
-      pendingItems: props.items,
+      pendingItems: [...props.items],
       leftItems: [],
       rightItems: []
     }
@@ -74,12 +76,30 @@ export default class ViewWaterFall extends React.Component<IViewWaterFallProps, 
       <Row className='WaterFall' gutter={8}>
         <Col xs={24} md={12}>
           <div ref={this.saveLeftContainer}>
-            {leftItems.map((item, i) => template(item, i))}
+            <TransitionGroup>
+              {leftItems.map((item, i) => (
+                <CSSTransition
+                  key={i}
+                  classNames='WaterFallItem'
+                  timeout={300}>
+                  {template(item, i)}
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
           </div>
         </Col>
         <Col xs={24} md={12}>
           <div ref={this.saveRightContainer}>
-            {rightItems.map((item, i) => template(item, i))}
+            <TransitionGroup>
+              {rightItems.map((item, i) => (
+                <CSSTransition
+                  key={i}
+                  classNames='WaterFallItem'
+                  timeout={300}>
+                  {template(item, i)}
+                </CSSTransition>
+              ))}
+            </TransitionGroup>
           </div>
         </Col>
       </Row>

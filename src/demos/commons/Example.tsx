@@ -29,6 +29,10 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
     }
   }
 
+  shouldComponentUpdate (nextProps: IExampleProps, nextState: IExampleState) {
+    return this.state.expanded !== nextState.expanded
+  }
+
   onToggle = () => {
     this.setState({expanded: !this.state.expanded})
   }
@@ -47,19 +51,6 @@ export default class Example extends React.Component<IExampleProps, IExampleStat
 
     const html = this.highLightCode(raw)
     const text = this.markdownText(description)
-
-    // return (
-    //   <div className='Example'>
-    //     <div className='Example__content'>
-    //       <div className='Example__demo'>
-    //         {Component && <Component/>}
-    //         <div className='Example__toggle' onClick={this.onToggle}>{expanded ? '收起' : '展开'}</div>
-    //       </div>
-    //       {expanded && <div className='Example__raw' dangerouslySetInnerHTML={{__html: html}}/>}
-    //     </div>
-    //     <div className='Example__text' dangerouslySetInnerHTML={{__html: text}}/>
-    //   </div>
-    // )
 
     return (
       <div className='Example'>
