@@ -6,6 +6,8 @@ export interface IClassDictionary {[id: string]: boolean | undefined | null}
 export interface IClassArray extends Array<ClassValue> {}
 export type ClassValue = string | number | IClassDictionary | IClassArray[] | undefined | null | false
 
+export type CN = typeof classnames
+
 export interface IBaseProps {
   className?: string,
   style?: React.CSSProperties
@@ -23,19 +25,11 @@ export default abstract class Base<P = {}, S = {}> extends React.Component<P & I
   }
 
   rootProps = (classes: ClassValue[] | ClassValue, styles?: React.CSSProperties) => {
-    const {className, style, ...rest} = this.props as any
+    const {className, style} = this.props
 
-    const props: any = {
+    return {
       className: classnames(classes, className),
-      style: Object.assign({}, styles, style)
+      style: (styles || style) ? Object.assign({}, styles, style) : undefined
     }
-
-    for (let name in rest) {
-      if (name.startsWith('data-')) {
-        props[name] = rest[name]
-      }
-    }
-
-    return props
   }
 }

@@ -1,12 +1,15 @@
-import * as React from 'react'
-import Base from '../../libs/Base'
-import Tooltip from '../Tooltip'
 import './Avatar.less'
+
+import * as React from 'react'
+
+import Base from '../../libs/Base'
+import {SizeType} from '../../libs/interfaces'
+import Tooltip from '../Tooltip'
 
 export interface IAvatarProps {
   src?: string,
   title?: string,
-  size?: 'small' | 'normal' | 'large'
+  size?: SizeType
 }
 
 export default class Avatar extends Base<IAvatarProps> {

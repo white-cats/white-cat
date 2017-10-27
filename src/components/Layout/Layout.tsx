@@ -13,7 +13,7 @@ export interface ILayoutProps {
   direction?: 'horizontal' | 'vertical' | 'horizontal-reverse' | 'vertical-reverse',
   centered?: boolean,
   full?: boolean,
-  gap?: number,
+  gutter?: number,
   header?: React.ReactNode,
   footer?: React.ReactNode,
 }
@@ -25,13 +25,13 @@ export default class Layout extends Base<ILayoutProps> {
   }
 
   render () {
-    const {header, footer, children, centered, full, direction: _direction = 'vertical', gap: _gap} = this.props
+    const {header, footer, children, centered, full, direction: _direction = 'vertical', gutter: _gutter} = this.props
     const direction = _direction && 'whc-layout--' + _direction
-    const gapStyle = _gap && children ? {[margins[_direction]]: _gap} : undefined
+    const gutterStyle = _gutter && children ? {[margins[_direction]]: _gutter} : undefined
 
     return (
       <div {...this.rootProps(['whc-layout', direction, {centered, full}])}>
-        {header && <div className='whc-layout__header' style={gapStyle}>{header}</div>}
+        {header && <div className='whc-layout__header' style={gutterStyle}>{header}</div>}
         {children && <div className='whc-layout__container'>{children}</div>}
         {footer && <div className='whc-layout__footer'>{footer}</div>}
       </div>

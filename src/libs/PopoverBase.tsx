@@ -27,7 +27,7 @@ export default abstract class PopoverBase<P> extends Base<IPopoverBaseProps & P,
     trigger: 'click'
   }
 
-  target: HTMLElement
+  target: Element
   container: HTMLElement | null
   popper: HTMLElement
   $popper: Popper | null

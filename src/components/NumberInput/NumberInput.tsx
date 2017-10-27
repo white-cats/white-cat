@@ -25,7 +25,7 @@ export default class NumberInput extends Base<INumberInputProps> {
     }
   }
   
-  onChange: React.ChangeEventHandler<any> = (e: React.ChangeEvent<any>) => {
+  onChange = (e: React.ChangeEvent<any>) => {
     const {onChange} = this.props
     const valueStr = e.target.value
     if (onChange) {
@@ -34,12 +34,12 @@ export default class NumberInput extends Base<INumberInputProps> {
   }
 
   render () {
-    const {value: valueStr, ...rest} = this.props
+    const {value: valueStr, onChange, ...rest} = this.props
 
     const value = (parseInt(valueStr + '') || 0) + ''
 
     return (
-      <Input {...this.rootProps('whc-number-input')} {...rest} value={value}/>
+      <Input {...this.rootProps('whc-number-input')} {...rest} value={value} onChange={this.onChange}/>
     )
   }
 }
