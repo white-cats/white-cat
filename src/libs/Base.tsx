@@ -33,3 +33,5 @@ export default abstract class Base<P = {}, S = {}> extends React.Component<P & I
     }
   }
 }
+
+export type SizeType = 'small' | 'normal' | 'large'
