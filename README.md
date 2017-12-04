@@ -6,49 +6,40 @@ React components built with typescript.
 
 ## Components
 
-- [x] AutocompleteInput
-- [x] Avatar
-- [x] Badge
-- [x] Box
-- [x] Button
-- [x] Button.Group
-- [x] Calendar
-- [x] Card
-- [x] CheckBox
-- [x] Container
-- [ ] Collapse
-- [x] DatePicker
-- [x] DatetimePicker
-- [x] Dialog
-- [x] Divider
-- [x] Dropdown
-- [x] Form
-- [x] Grid.Row
-- [x] Grid.Col
-- [x] Group
-- [x] Icon
-- [x] Input
-- [x] Layout
-- [x] List
-- [x] Loader
-- [x] Mask
-- [x] Modal
-- [x] Notification
-- [x] NumberInput
-- [x] Pagination
-- [x] Popover
-- [x] Popover.Menu
-- [x] Popover.Menu.Item
-- [ ] Progress
-- [x] ScrollBar
-- [x] SidePanel
-- [ ] Segment
-- [ ] Select
-- [ ] Step
-- [ ] Tab
-- [ ] Table
-- [x] Tag
-- [x] Textarea
-- [x] TimePicker
-- [x] Tooltip
-- [x] Tree
+- Avatar
+- Badge
+- Box
+- Button
+- Button.Group
+- Calendar
+- Card
+- CheckBox
+- Container
+- DatePicker
+- DatetimePicker
+- Dialog
+- Divider
+- Form
+- Grid.Row
+- Grid.Col
+- Group
+- Icon
+- Input
+- Layout
+- List
+- Loader
+- Mask
+- Modal
+- Notification
+- NumberInput
+- Pagination
+- Popover
+- Popover.Menu
+- Popover.Menu.Item
+- ScrollBar
+- SidePanel
+- Tag
+- Textarea
+- TimePicker
+- Tooltip
+- Tree
